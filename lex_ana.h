@@ -5,12 +5,12 @@
 #include <iostream>
 #include <cstring>
 #include <fstream>	//too//
-#include <iterator>//ÓÃÓÚ¶ÁÈ¡ÎÄ¼ş// 
+#include <iterator>//ç”¨äºè¯»å–æ–‡ä»¶// 
 #include <ctype.h>		//isalpha// 
 #include <vector>
 
 
-//¶¨ÒåtokenÀàĞÍ// 
+//å®šä¹‰tokenç±»å‹// 
 #define LEX_KEYWORD 1
 #define LEX_OPERATION1 2
 #define LEX_OPERATION2 3
@@ -18,43 +18,43 @@
 #define LEX_SEPCIFIC 5			
 #define LEX_TAG	6
 #define LEX_INIT 7
-//´ı²¹³ä// 
+//å¾…è¡¥å……// 
 
 
-char const *const Lex_Keyword[] = {	//±äÁ¿Ãû/// ¿´ÁËÒ»È¦Ö»ÓĞintÀàĞÍ »òÕßvoidÀàĞÍ// 				
-	"int","void","const","while",//Ã»ÓĞdo whileÓï¾ä// 
+char const *const Lex_Keyword[] = {	//å˜é‡å/// çœ‹äº†ä¸€åœˆåªæœ‰intç±»å‹ æˆ–è€…voidç±»å‹// 				
+	"int","void","const","while",//æ²¡æœ‰do whileè¯­å¥// 
 	"if","else","continue","break"
 };
 
-char const *const Lex_operation1[] = {	//²Ù×÷·ûºÅ//	//Ã»ÓĞÎ»ÔËËã// 							
+char const *const Lex_operation1[] = {	//æ“ä½œç¬¦å·//	//æ²¡æœ‰ä½è¿ç®—// 							
 	"+","-","*","/","%","=",">","<","&","!"
 };
 
-char const *const Lex_operation2[] = {	//²Ù×÷·ûºÅ	//	Á½Î»µÄ// 
+char const *const Lex_operation2[] = {	//æ“ä½œç¬¦å·	//	ä¸¤ä½çš„// 
 	">=","<=","&&","||","!=","=="
 };
 
-char const *const Lex_Function[] = {	//¹¦ÄÜº¯Êı// 	²Î¿¼»ªÎªÌá¹©µÄSysYÔËĞĞÊ±¿â 2021// 
-	"getint","getch","getarray","putint","putch","putarray","putf",//I/Oº¯Êı
-	"starttime","stoptime","main" 											//¼ÆÊ±º¯Êı 
+char const *const Lex_Function[] = {	//åŠŸèƒ½å‡½æ•°// 	å‚è€ƒåä¸ºæä¾›çš„SysYè¿è¡Œæ—¶åº“ 2021// 
+	"getint","getch","getarray","putint","putch","putarray","putf",//I/Oå‡½æ•°
+	"starttime","stoptime","main" 											//è®¡æ—¶å‡½æ•° 
 };
 
-char const *const Lex_specific[] = {	//ÌØÊâ·ûºÅ// 
-	";",",","{","}","[","]","(",")"
+char const *const Lex_specific[] = {	//ç‰¹æ®Šç¬¦å·// 
+	";" , "," , "{" , "}" , "[" , "]" , "(" ,")"
 };
 
 typedef struct _Token{
-	bool flag;				//±ê¼ÇÕâÒ»ĞĞÊÇ·ñÓĞÊı¾İ// 
-//	int line;				//¼ÇÂ¼ĞĞºÅ//
-	int rule;				//¼ÇÂ¼¹æÔòÀàĞÍ// 
-//	int length;				//¼ÇÂ¼³¤¶È// 
-	std::string alToken;			//¼ÇÂ¼·ûºÅ// 
+	bool flag;				//æ ‡è®°è¿™ä¸€è¡Œæ˜¯å¦æœ‰æ•°æ®// 
+//	int line;				//è®°å½•è¡Œå·//
+	int rule;				//è®°å½•è§„åˆ™ç±»å‹// 
+//	int length;				//è®°å½•é•¿åº¦// 
+	std::string alToken;			//è®°å½•ç¬¦å·// 
 } Token,pToken;
 
 
 
 
-bool ReadFileToString(char * FilePath);	//¶ÁÈ¡ÎÄ¼şÖĞµÄÄÚÈİ// 
+bool ReadFileToString(char * FilePath);	//è¯»å–æ–‡ä»¶ä¸­çš„å†…å®¹// 
 bool LexAnalyze();
 #endif
 
